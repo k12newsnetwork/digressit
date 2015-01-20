@@ -16,4 +16,5 @@ function digressit_default_lightboxes(){
 	add_action('add_lightbox', 'lightbox_registering');
 	add_action('add_lightbox', 'lightbox_generic_response');
 }
-?>
+
+remove_action('add_header_image', 'custom_digressit_logo');
