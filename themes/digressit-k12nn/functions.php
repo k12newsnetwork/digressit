@@ -18,3 +18,24 @@ function digressit_default_lightboxes(){
 }
 
 remove_action('add_header_image', 'custom_digressit_logo');
+
+if(esc_url($options['custom_header_image'], array('http', 'https'))){
+	add_action('add_header_image', 'k12nn_digressit_logo');
+}
+
+
+function k12nn_digressit_logo(){
+	$options = get_option('digressit');
+
+	$css_name = preg_replace("/[^a-zA-Z]/", "", get_bloginfo('name'));
+	?>
+	<style>
+
+	#<?php echo $css_name; ?>-logo{
+		background: url(<?php echo $options['custom_header_image']; ?>) no-repeat;
+		height: 100px;
+	}
+	</style>
+	<a href="http://www.k12newsnetwork.com/" ><div id="<?php echo $css_name; ?>-logo"></div></a>	
+	<?php
+}
