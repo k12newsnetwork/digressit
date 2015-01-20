@@ -1032,7 +1032,7 @@ ul{
 
 
 #live-content-search, #live-comment-search {
-    background: url("../../../../wp-content/plugins/digressit/core/images/search.png") no-repeat scroll 137px -25px transparent;
+    background: url("../../../wp-content/plugins/digressit/core/images/search.png") no-repeat scroll 137px -25px transparent;
     padding: 5px;
 }
 
