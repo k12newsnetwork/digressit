@@ -36,6 +36,9 @@ function k12nn_digressit_logo(){
 		height: 100px;
 	}
 	</style>
-	<a href="http://www.k12newsnetwork.com/" ><div id="<?php echo $css_name; ?>-logo"></div></a>	
+	<div id="<?php echo $css_name; ?>-logo">
+	<a href="http://www.k12newsnetwork.com/" class="left-header"></a>	
+	<a href="http://k12newsnetwork.com/elementary-and-secondary-education-act/" class="right-header"></a>	
+	</div>
 	<?php
 }
