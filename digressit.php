@@ -4,7 +4,7 @@ Plugin Name: Digress.it
 Plugin URI: http://digress.it
 Description:  Digress.it allows readers to comment paragraph by paragraph in the margins of a text. You can use it to comment, gloss, workshop, debate and more!
 Author: Eddie A Tejeda
-Version: 4.0.9
+Version: 4.0.11
 Author URI: http://eddietejeda.com
 License: GPLv2 (http://creativecommons.org/licenses/GPL/2.0/)
 
@@ -267,41 +267,7 @@ function activate_digressit(){
 	if(is_link($theme_link)){
 		unlink($theme_link);
 	}
-	/* Since: 2.9.0 */
-	if(!function_exists( 'register_theme_directory')){
-		if(is_writable( $themes_dir)){
-
-			//echo "is_writable";
-			$theme_link = $themes_dir . $plugin_name;
 		
-			//CREATE THE THEME DIRECTORY
-			if(is_link($theme_link)){
-				//i think we're good
-				//die( "already link");
-			}
-			elseif(!file_exists($theme_link)){
-				if(symlink($plugin_theme_link,$theme_link)){
-					//we're good
-					//update_option($options['theme_mode'], 'stylesheet');
-					//die( "Created link");
-				}
-				else{
-					//die( "There was an error creating the symlink of <b>$plugin_theme_link</b> in <b>$theme_link</b>. If the server doesn't have write permission try creating it manually");
-				}
-			}
-			else{
-				//die( "unknown error");
-				//probably a windows person
-				//die( "There was a error creating the symlink of <b>$plugin_theme_link</b> in <b>$theme_link</b>. Maybe a theme named DigressIt already exists?");					
-			}
-		
-		
-		}
-		else{
-			die(__('No write permission on: ').$themes_dir.__('. Please give the server write permission on this directory'));
-		}
-	}
-	switch_theme('digressit-default', 'digressit-default');	
 }
 
 
@@ -632,14 +598,18 @@ function get_digressit_media_uri($filepath){
  * Returns the system path where Digress.it is installed
  */
 function get_digressit_theme_path(){
-	return DIGRESSIT_THEMES_DIR."/".basename(get_template_directory());;
+	// return DIGRESSIT_THEMES_DIR."/".basename(get_template_directory());;
+	
+	return get_stylesheet_directory();
 }
 
 /**
  * Returns the URL path where Digress.it is installed
  */
 function get_digressit_theme_uri(){
-	return DIGRESSIT_THEMES_DIR . get_current_theme();
+	// return DIGRESSIT_THEMES_DIR . get_current_theme();
+	
+	return get_stylesheet_directory_uri();
 }
 
 
