@@ -64,8 +64,8 @@ function commentbrowser_template_redirect() {
 	
 	if( has_action('add_commentbrowser', $commentbrowser_function) && function_exists($commentbrowser_function)) :
 		$is_commentbrowser = true;
-		if(file_exists(DIGRESSIT_THEMES_DIR .get_current_theme(). '/comments-browser.php')){
-			
+		if(file_exists(get_digressit_theme_path(). '/comments-browser.php')){
+			include(get_digressit_theme_path(). '/comments-browser.php');
 		}
 		else{
 			include(DIGRESSIT_THEMES_DIR . '/digressit-default/comments-browser.php');
