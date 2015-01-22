@@ -4,7 +4,7 @@ Plugin Name: Digress.it
 Plugin URI: http://digress.it
 Description:  Digress.it allows readers to comment paragraph by paragraph in the margins of a text. You can use it to comment, gloss, workshop, debate and more!
 Author: Eddie A Tejeda
-Version: 4.0.8
+Version: 4.0.9
 Author URI: http://eddietejeda.com
 License: GPLv2 (http://creativecommons.org/licenses/GPL/2.0/)
 
@@ -62,7 +62,7 @@ $plugin_dir = WP_CONTENT_DIR . '/plugins/'. $plugin_name.'/';
 $plugin_theme_link = WP_CONTENT_DIR . '/plugins/'. $plugin_name.'/themes/';
 
 
-register_theme_directory( $plugin_theme_link );
+// register_theme_directory( $plugin_theme_link );
 
 
 register_digressit_content_function('standard_digressit_content_parser');
